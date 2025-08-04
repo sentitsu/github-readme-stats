@@ -10,7 +10,6 @@ import {
 import { fetchStats } from "../src/fetchers/stats-fetcher.js";
 import { isLocaleAvailable } from "../src/translations.js";
 const GITHUB_TOKEN = process.env.PAT_1;
-const token = countPrivate ? GITHUB_TOKEN : undefined;
 
 export default async (req, res) => {
   const {
@@ -68,6 +67,9 @@ export default async (req, res) => {
   }
 
   try {
+    const countPrivate = parseBoolean(req.query.count_private);
+    const token = countPrivate ? GITHUB_TOKEN : undefined;
+    
     const showStats = parseArray(show);
     const stats = await fetchStats(
       username,
