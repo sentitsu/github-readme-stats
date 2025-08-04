@@ -21,6 +21,9 @@ import {
  * @returns {Promise<AxiosResponse>} Languages fetcher response.
  */
 const fetcher = (variables, token) => {
+  const headers = token
+    ? { Authorization: `token ${token}` } // ← Personal Access Token (classic) 向け
+    : {};
   return request(
     {
       query: `
