@@ -8,6 +8,7 @@ import {
 } from "../src/common/utils.js";
 import { fetchTopLanguages } from "../src/fetchers/top-languages-fetcher.js";
 import { isLocaleAvailable } from "../src/translations.js";
+const GITHUB_TOKEN = process.env.PAT_1;
 
 export default async (req, res) => {
   const {
@@ -67,6 +68,7 @@ export default async (req, res) => {
       parseArray(exclude_repo),
       size_weight,
       count_weight,
+      GITHUB_TOKEN
     );
 
     let cacheSeconds = parseInt(
