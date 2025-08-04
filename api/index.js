@@ -9,6 +9,7 @@ import {
 } from "../src/common/utils.js";
 import { fetchStats } from "../src/fetchers/stats-fetcher.js";
 import { isLocaleAvailable } from "../src/translations.js";
+const GITHUB_TOKEN = process.env.PAT_1;
 
 export default async (req, res) => {
   const {
@@ -75,6 +76,7 @@ export default async (req, res) => {
         showStats.includes("prs_merged_percentage"),
       showStats.includes("discussions_started"),
       showStats.includes("discussions_answered"),
+      GITHUB_TOKEN,
     );
 
     let cacheSeconds = clampValue(
