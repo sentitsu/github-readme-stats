@@ -90,14 +90,16 @@ const GRAPHQL_STATS_QUERY = `
  */
 const fetcher = (variables, token) => {
   const query = variables.after ? GRAPHQL_REPOS_QUERY : GRAPHQL_STATS_QUERY;
+  const headers = token
+    ? { Authorization: `bearer ${token}` }
+    : {};
+
   return request(
     {
       query,
       variables,
     },
-    {
-      Authorization: `bearer ${token}`,
-    },
+    headers,
   );
 };
 
