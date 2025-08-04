@@ -132,7 +132,7 @@ const statsFetcher = async ({
       includeDiscussions,
       includeDiscussionsAnswers,
     };
-    let res = await retryer(fetcher, variables);
+    let res = await retryer(fetcher, variables, auth);
     if (res.data.errors) {
       return res;
     }
