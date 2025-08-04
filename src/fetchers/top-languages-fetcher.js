@@ -70,6 +70,7 @@ const fetchTopLanguages = async (
   exclude_repo = [],
   size_weight = 1,
   count_weight = 0,
+  auth
 ) => {
   if (!username) {
     throw new MissingParamError(["username"]);
