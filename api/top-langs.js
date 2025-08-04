@@ -8,6 +8,7 @@ import {
 } from "../src/common/utils.js";
 import { fetchTopLanguages } from "../src/fetchers/top-languages-fetcher.js";
 import { isLocaleAvailable } from "../src/translations.js";
+const GITHUB_TOKEN = process.env.PAT_1;
 const token = countPrivate ? GITHUB_TOKEN : undefined;
 
 export default async (req, res) => {
