@@ -118,6 +118,7 @@ const statsFetcher = async ({
   includeMergedPullRequests,
   includeDiscussions,
   includeDiscussionsAnswers,
+  auth,
 }) => {
   let stats;
   let hasNextPage = true;
@@ -226,6 +227,7 @@ const fetchStats = async (
   include_merged_pull_requests = false,
   include_discussions = false,
   include_discussions_answers = false,
+  auth
 ) => {
   if (!username) {
     throw new MissingParamError(["username"]);
@@ -251,6 +253,7 @@ const fetchStats = async (
     includeMergedPullRequests: include_merged_pull_requests,
     includeDiscussions: include_discussions,
     includeDiscussionsAnswers: include_discussions_answers,
+    auth,
   });
 
   // Catch GraphQL errors.
